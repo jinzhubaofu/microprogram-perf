@@ -1,0 +1,75 @@
+<style>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.item {
+  flex: 0 0 125px;
+  height: 200px;
+  border-top: 1px #eee solid;
+  border-left: 1px #eee solid;
+  box-sizing: border-box;
+}
+
+.item.first {
+  border-left: 0;
+}
+</style>
+<template>
+  <view class="container">
+    <repeat for="{{list}}" key="index" index="index" item="item">
+      <view :class="{item: true, first: index % 3 === 0, last: index % 3 === 2}">
+        <view class="index">{{index}}</view>
+        <view class="id">{{item.id}}</view>
+        <view class="name">{{item.name}}</view>
+        <view class="message">{{item.message}}</view>
+      </view>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: 'test'
+    }
+
+    data = {
+      list: Array.from({length: 200}).map((_, i) => ({
+        id: `id-${i}`,
+        name: `name-${i}`,
+        message: `message-${i}`
+      }))
+    }
+
+    // events = {
+    //   'index-emit': (...args) => {
+    //     let $event = args[args.length - 1]
+    //     console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
+    //   }
+    // }
+
+    // onLoad() {
+    //   let self = this
+    //   this.$parent.getUserInfo(function (userInfo) {
+    //     if (userInfo) {
+    //       self.userInfo = userInfo
+    //     }
+    //     self.normalTitle = '标题已被修改'
+
+    //     self.setTimeoutTitle = '标题三秒后会被修改'
+    //     setTimeout(() => {
+    //       self.setTimeoutTitle = '到三秒了'
+    //       self.$apply()
+    //     }, 3000)
+
+    //     self.$apply()
+    //   })
+    // }
+  }
+</script>

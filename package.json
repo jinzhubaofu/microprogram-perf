@@ -5,5 +5,11 @@
   "repository": "git@github.com:jinzhubaofu/microprogram-perf.git",
   "author": "lupengyu <lupengyu@bytedance.com>",
   "license": "MIT",
-  "workspaces": ["packages/*"]
+  "private": true,
+  "scripts": {
+    "build": "wsrun build"
+  },
+  "devDependencies": {
+    "wsrun": "^3.6.4"
+  }
 }
