@@ -40,7 +40,7 @@
     }
 
     data = {
-      list: Array.from({length: 200}).map((_, i) => ({
+      list: Array.from({length: 500}).map((_, i) => ({
         id: `id-${i}`,
         name: `name-${i}`,
         message: `message-${i}`
