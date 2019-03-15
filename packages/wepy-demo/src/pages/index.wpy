@@ -47,6 +47,19 @@
       }))
     }
 
+    onLoad() {
+      console.log('load');
+      this.t = Date.now();
+    }
+
+    onShow() {
+      console.log('show', `${Date.now() - this.t}ms`);
+    }
+
+    onReady() {
+      console.log('ready', `${Date.now() - this.t}ms`);
+    }
+
     // events = {
     //   'index-emit': (...args) => {
     //     let $event = args[args.length - 1]
